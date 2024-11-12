@@ -1,21 +1,14 @@
 package pages;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class verification_page extends StartupPage {
 
 	public By getUsernameTextfieldLocator() {
-		return By.id(" ");
+		return By.id("  ");
 	}
 
 	public By getUsernameTextboxLocator() {
@@ -31,11 +24,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getVerificationLocator() {
-		return By.xpath(" ");
+		return By.xpath("  ");
 	}
 
 	public By getHomepageLogoLocator() {
-		return By.cssSelector(" ");
+		return By.cssSelector("  ");
 	}
 
 	public By getPageBarFixedLocator(String navBarName) {
@@ -47,7 +40,7 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getSubNavTabLocator(String subNavName) {
-		return By.xpath("  ");
+		return By.xpath(" ");
 	}
 
 	public By getButtonLocatorsBytext(String buttonName) {
@@ -55,23 +48,23 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getAnchorTagLocatorByText(String anchorTagName) {
-		return By.xpath("   ");
+		return By.xpath("  ");
 	}
 
 	public By searchBarId() {
-		return By.id("   ");
+		return By.id("  ");
 	}
 
 	public By calendarFromDropdown() {
-		return By.xpath("    ");
+		return By.xpath("  ");
 	}
 
 	public By calendarToDropdown() {
-		return By.xpath("          ");
+		return By.xpath("  ");
 	}
 
 	public By getOkButtonLocator() {
-		return By.xpath(" ");
+		return By.xpath("  ");
 	}
 
 	public By getRadioButtonsLocator(String radioButtonName) {
@@ -91,15 +84,15 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getReqStatus() {
-		return By.cssSelector("   ");
+		return By.cssSelector("  ");
 	}
 
 	public By getInventoryLocator() {
-		return By.xpath("   ");
+		return By.xpath(" ");
 	}
 
 	public By getLocatorById(String idName) {
-		return By.id(idName);
+		return By.id(null);
 	}
 
 	public By getInputFieldLocator(String inputFieldName) {
@@ -107,11 +100,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getPopUpMessageText(String msgStatus, String messageText) {
-		return By.xpath("    ");
+		return By.xpath("  ");
 	}
 
 	public By getPurchaseRequestStatus(String companyName, String status) {
-		return By.xpath("   ");
+		return By.xpath("  ");
 	}
 
 	public By getPurchaseRequestViewButton(String status) {
@@ -151,11 +144,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getResultCountLocator() {
-		return By.cssSelector("   ");
+		return By.cssSelector("  ");
 	}
 	
 	public By getFirstViewButton() {
-		return By.xpath("   ");
+		return By.xpath(" ");
 	}
 
 	public verification_page(WebDriver driver) {
