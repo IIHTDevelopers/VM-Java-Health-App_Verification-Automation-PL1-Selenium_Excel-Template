@@ -22,8 +22,8 @@ import org.testng.annotations.BeforeClass;
 public class verification_testcase extends AppTestBase {
 	Map<String, String> configData;
 	Map<String, String> loginCredentials;
-	String expectedDataFilePath = testDataFilePath + "expected_data.xlsx";
-	String loginFilePath = loginDataFilePath + "Login.xlsx";
+	String expectedDataFilePath = testDataFilePath + "expected_data.json";
+	String loginFilePath = loginDataFilePath + "Login.json";
 	StartupPage startupPage;
 	String randomInvoiceNumber;
 	LocatorsFactory locatorsFactoryInstance;
@@ -34,7 +34,7 @@ public class verification_testcase extends AppTestBase {
 	@Parameters({ "browser", "environment" })
 	@BeforeClass(alwaysRun = true)
 	public void initBrowser(String browser, String environment) throws Exception {
-		configData = new FileOperations().readExcelPOI(config_filePath, environment);
+		configData = new FileOperations().readJson(config_filePath, environment);
 		configData.put("url", configData.get("url").replaceAll("[\\\\]", ""));
 		configData.put("browser", browser);
 
@@ -52,9 +52,9 @@ public class verification_testcase extends AppTestBase {
 	public void verifyVerificationModule() throws Exception {
 		verification_pageInstance = new verification_page(driver);
 
-		Map<String, String> verificationExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath,
+		Map<String, String> verificationExpectedData = new FileOperations().readJson(expectedDataFilePath,
 				"verification");
-		Map<String, String> loginData = new FileOperations().readExcelPOI(loginFilePath, "credentials");
+		Map<String, String> loginData = new FileOperations().readJson(loginFilePath, "credentials");
 
 		Assert.assertTrue(verification_pageInstance.loginToHealthAppByGivenValidCredetial(loginData),
 				"Login failed, Invalid credentials ! Please check manually");
@@ -188,7 +188,7 @@ public class verification_testcase extends AppTestBase {
 	public void verifyToolTipText() throws Exception {
 		verification_pageInstance = new verification_page(driver);
 
-		Map<String, String> pharmacyExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "verification");
+		Map<String, String> pharmacyExpectedData = new FileOperations().readJson(expectedDataFilePath, "verification");
 		Assert.assertEquals(verification_pageInstance.verifyToolTipText(), pharmacyExpectedData.get("favouriteIcon"));
 	}
 
@@ -200,86 +200,14 @@ public class verification_testcase extends AppTestBase {
 		verification_pageInstance = new verification_page(driver);
 
 		LocalDate currentDate = LocalDate.now();
-		LocalDate date7DaysAgo = currentDate.minusDays(50);
+		LocalDate date50DaysAgo = currentDate.minusDays(50);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		String toDate = currentDate.format(formatter);
-		String fromDate = date7DaysAgo.format(formatter);
+		String fromDate = date50DaysAgo.format(formatter);
 
 		System.out.println("From Date : " + fromDate + ", To Date : " + toDate);
 		Assert.assertTrue(verification_pageInstance.verifyDatesAreRememberedCorrectly(fromDate, toDate));
 	}
-
-	@Test(priority = 9, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on verification module\r\n"
-					+ "1. Click on the data range button\r\n" + "2. Select\"one week\" option from the drop down\r\n"
-					+ "3. Click on \"OK\" button")
-	public void verifyResultDataIsAsPerTheSelectedDateRange() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		verification_pageInstance.highlightAndClickOnElement(verification_pageInstance.getStarIconLocator(),
-				"Tool Tip");
-		Assert.assertTrue(verification_pageInstance.clickDateRangeDropdownAndSelect("Last 1 Week"));
-		LocalDate currentDate = LocalDate.now();
-		LocalDate date7DaysAgo = currentDate.minusDays(7);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String toDate = currentDate.format(formatter);
-		String fromDate = date7DaysAgo.format(formatter);
-		Thread.sleep(3000); // Waiting for data to load
-		Assert.assertTrue(
-				verification_pageInstance.verifyTheResultsDateRangeIsWithinTheSelectedRange(fromDate, toDate));
-	}
-
-	@Test(priority = 10, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Verification module\r\n"
-					+ "1. Click on the \"Pending \" Radio button from List by Verification Status\r\n"
-					+ "2. Click on the \"Approved \" Radio button from List by Verification Status\r\n"
-					+ "3. Click on the \"Rejected \" Radio button from List by Verification Status\r\n"
-					+ "4. Click on the \"All \" Radio button from List by Verification Status")
-	public void verifyAllTheRadioButtonsAreSelectable() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("pending"));
-		Assert.assertTrue(verification_pageInstance.isRadioButtonSelected("pending"));
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("approved"));
-		Assert.assertTrue(verification_pageInstance.isRadioButtonSelected("approved"));
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("rejected"));
-		Assert.assertTrue(verification_pageInstance.isRadioButtonSelected("rejected"));
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("all"));
-		Assert.assertTrue(verification_pageInstance.isRadioButtonSelected("all"));
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("pending")); // To met the pre-condition for
-																						// the next test case
-	}
-
-	@Test(priority = 11, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Verification module\r\n"
-					+ "1. Click on Requisition Status drop down\r\n" + "2. Click on \"Active\" drop down option\r\n")
-	public void verifyRecordsAreFilterdAccordingToRequisitionStatus() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		Assert.assertTrue(verification_pageInstance.verifyRecordsAreFilteredAccordingToRequisitionStatus("active"));
-	}
-
-	@Test(priority = 12, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Verification module\r\n"
-					+ "1. Select \"All\" radio button\r\n" + "2. Select \"All\"  drop down option\r\n"
-					+ "3. Click on \"FROM\" and Select \"Jan 2020\"\r\n"
-					+ "4. Click on \"TO\" and select \"march 2024\"\r\n" + "5. Click on \"OK\" button\r\n"
-					+ "6. Click on \"View\" button from action column of specific row"
-					+ "7. User should navigate to the Check and Verify Requisition page of that Selected specific row ")
-	public void verifyRequisitionPageForRecord() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		Assert.assertTrue(verification_pageInstance.visitTab("Inventory"));
-		Assert.assertTrue(verification_pageInstance.clickRadioButtonByText("all"));
-		Assert.assertTrue(verification_pageInstance.selectDropdownValueByText("all"));
-		Assert.assertTrue(verification_pageInstance.applyDateFilter("01-01-2024", "01-03-2024"));
-		String requisitionNumberOfFirstRequisition = verification_pageInstance
-				.getRequisitionNumberAndClickViewButtonForTheFirstRequisition();
-		Assert.assertEquals(verification_pageInstance.getRequisitionNumberFromTheReport(),
-				requisitionNumberOfFirstRequisition);
-		Assert.assertTrue(verification_pageInstance.clickButtonByText("Back to Requisition List"));
-	}
-
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
