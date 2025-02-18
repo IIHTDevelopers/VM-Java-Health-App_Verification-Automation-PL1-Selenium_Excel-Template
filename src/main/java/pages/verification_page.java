@@ -1,14 +1,21 @@
 package pages;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class verification_page extends StartupPage {
 
 	public By getUsernameTextfieldLocator() {
-		return By.id("  ");
+		return By.id(" ");
 	}
 
 	public By getUsernameTextboxLocator() {
@@ -24,11 +31,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getVerificationLocator() {
-		return By.xpath("  ");
+		return By.xpath(" ");
 	}
 
 	public By getHomepageLogoLocator() {
-		return By.cssSelector("  ");
+		return By.cssSelector(" ");
 	}
 
 	public By getPageBarFixedLocator(String navBarName) {
@@ -40,7 +47,7 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getSubNavTabLocator(String subNavName) {
-		return By.xpath(" ");
+		return By.xpath("  ");
 	}
 
 	public By getButtonLocatorsBytext(String buttonName) {
@@ -48,23 +55,23 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getAnchorTagLocatorByText(String anchorTagName) {
-		return By.xpath("  ");
+		return By.xpath("   ");
 	}
 
 	public By searchBarId() {
-		return By.id("  ");
+		return By.id("   ");
 	}
 
 	public By calendarFromDropdown() {
-		return By.xpath("  ");
+		return By.xpath("    ");
 	}
 
 	public By calendarToDropdown() {
-		return By.xpath("  ");
+		return By.xpath("          ");
 	}
 
 	public By getOkButtonLocator() {
-		return By.xpath("  ");
+		return By.xpath(" ");
 	}
 
 	public By getRadioButtonsLocator(String radioButtonName) {
@@ -84,15 +91,15 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getReqStatus() {
-		return By.cssSelector("  ");
+		return By.cssSelector("   ");
 	}
 
 	public By getInventoryLocator() {
-		return By.xpath(" ");
+		return By.xpath("   ");
 	}
 
 	public By getLocatorById(String idName) {
-		return By.id(null);
+		return By.id(idName);
 	}
 
 	public By getInputFieldLocator(String inputFieldName) {
@@ -100,11 +107,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getPopUpMessageText(String msgStatus, String messageText) {
-		return By.xpath("  ");
+		return By.xpath("    ");
 	}
 
 	public By getPurchaseRequestStatus(String companyName, String status) {
-		return By.xpath("  ");
+		return By.xpath("   ");
 	}
 
 	public By getPurchaseRequestViewButton(String status) {
@@ -144,11 +151,11 @@ public class verification_page extends StartupPage {
 	}
 
 	public By getResultCountLocator() {
-		return By.cssSelector("  ");
+		return By.cssSelector("   ");
 	}
 	
 	public By getFirstViewButton() {
-		return By.xpath(" ");
+		return By.xpath("   ");
 	}
 
 	public verification_page(WebDriver driver) {
@@ -208,7 +215,7 @@ public class verification_page extends StartupPage {
 	}
 
 	/**
-	 * @Test2, @Test3 and @Test9.1 about this method highlightAndClickOnElement
+	 * @Test2 and @Test3 about this method highlightAndClickOnElement
 	 * 
 	 * @param element     : By - Locator of the element to be highlighted and
 	 *                    clicked
@@ -263,7 +270,7 @@ public class verification_page extends StartupPage {
 	}
 
 	/**
-	 * @Test6 and @Test9.3 about this method
+	 * @Test6 about this method
 	 *        verifyTheResultsDateRangeIsWithinTheSelectedRange()
 	 * 
 	 * @param : String, String - from date - to date
@@ -315,161 +322,5 @@ public class verification_page extends StartupPage {
 		return false;
 	}
 
-	/**
-	 * @Test9.2 about this method clickDateRangeDropdownAndSelect()
-	 * 
-	 * @param : String - Text of the value to select from dropdown
-	 * @description : This method clicks on the date range button and selects a
-	 *              value by its text
-	 * @return : boolean - true if successfully selected the intended value and
-	 *         false if the value is not selected
-	 * @throws : Exception - if there is an issue finding the dropdown or its values
-	 * @author : YAKSHA
-	 */
-	public boolean clickDateRangeDropdownAndSelect(String valueToSelect) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test10.1 @Test10.3 @Test10.5 @Test10.7 @Test12.2 about this method
-	 * clickRadioButtonByText()
-	 * 
-	 * @param : String - Text of the radio button.
-	 * @description : This method clicks on the radio button by its text.
-	 * @return : boolean - true if the intended radio button was clicked and false
-	 *         if it was not clicked
-	 * @throws : Exception - if there is an issue finding or clicking the radio
-	 *           button
-	 * @author : YAKSHA
-	 */
-	public boolean clickRadioButtonByText(String radioButtonText) throws Exception {
-		
-		return false;
-	}
-
-	/**
-	 * @Test10.2 @Test10.4 @Test10.6 @Test10.8 about this method
-	 * isRadioButtonSelected()
-	 * 
-	 * @param : String - Text of the radio button.
-	 * @description : This method clicks on the radio button by its text.
-	 * @return : boolean - true if the intended radio button was clicked and false
-	 *         if it was not clicked
-	 * @throws : Exception - if there is an issue finding or clicking the radio
-	 *           button
-	 * @author : YAKSHA
-	 */
-	public boolean isRadioButtonSelected(String radioButtonText) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test11 about this method
-	 *         verifyRecordsAreFilteredAccordingToRequisitionStatus()
-	 * 
-	 * @param : String - status
-	 * @description : This method verifies that all records in the table are
-	 *              filtered according to the "active" requisition status by
-	 *              selecting "active" from a dropdown and checking the status of
-	 *              each record in the table.
-	 * @return : boolean - true if all the requisition statuses are "active", false
-	 *         otherwise
-	 * @throws : Exception - if there is an issue selecting the "active" option,
-	 *           locating elements, or verifying the statuses
-	 * @author : YAKSHA
-	 */
-	public boolean verifyRecordsAreFilteredAccordingToRequisitionStatus(String status) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test12.1 about this method visitTab()
-	 * 
-	 * @param : String - Tab's text
-	 * @description : This method navigates the user to the specified tab
-	 * @return : boolean
-	 * @throws : Exception - if there is an issue finding or clicking the tab.
-	 * @author : YAKSHA
-	 */
-	public boolean visitTab(String tabText) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test12.3 about this method isRadioButtonSelected()
-	 * 
-	 * @param : String - Text of the radio button.
-	 * @description : This method clicks on the radio button by its text.
-	 * @return : boolean - true if the intended radio button was clicked and false
-	 *         if it was not clicked
-	 * @throws : Exception - if there is an issue finding or clicking the radio
-	 *           button
-	 * @author : YAKSHA
-	 */
-	public boolean selectDropdownValueByText(String optionToSelect) throws Exception {
-		return false;
-	}
-
-	/**
-	 * @Test12.4 about this method applyDateFilter()
-	 * 
-	 * @param : String, String
-	 * @description : Applies the date filter with date range
-	 * @return : void
-	 * @throws : Exception - if there is an issue finding or filling the date fields
-	 * @author : YAKSHA
-	 */
-	public boolean applyDateFilter(String fromDate, String toDate) throws Exception {
-		
-		return false;
-	}
-
-	/**
-	 * @Test12.5 about this method clickViewButtonForTheFirstRequisition()
-	 * 
-	 * @param : null
-	 * @description : This method clicks on the "View" button for the first result.
-	 * @return : String - requisition number of the first requisition from the
-	 *         result.
-	 * @throws : Exception - if there is an issue finding or clicking the radio
-	 *           button.
-	 * @author : YAKSHA
-	 */
-	public String getRequisitionNumberAndClickViewButtonForTheFirstRequisition() throws Exception {
-		return null;
-	}
-
-	/**
-	 * @Test12.6 about this method getRequisitionNumberFromTheReport()
-	 * 
-	 * @param : null
-	 * @description : This method returns the requisition number from the report
-	 * @return : String - requisition number
-	 * @throws : Exception - if there is an issue finding the requisition number in
-	 *           the report.
-	 * @author : YAKSHA
-	 */
-	public String getRequisitionNumberFromTheReport() throws Exception {
-		return null;
-	}
-
-	/**
-	 * @Test12.7 about this method clickButtonByText()
-	 * 
-	 * @param buttonText : String - The text of the button to be clicked
-	 * @description : This method locates a button using its text and performs a
-	 *              click action on it. If the button is found and successfully
-	 *              clicked, it highlights the button first. In case of failure
-	 *              (e.g., button not found or click error), an error message is
-	 *              printed and an exception is thrown.
-	 * @return : void
-	 * @throws : Exception - if there is an issue finding the button or performing
-	 *           the click action
-	 * @author : YAKSHA
-	 */
-	public boolean clickButtonByText(String buttonText) throws Exception {
-		
-		return false;
-	}
 
 }
