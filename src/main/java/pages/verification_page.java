@@ -14,148 +14,61 @@ import org.openqa.selenium.support.ui.Select;
 
 public class verification_page extends StartupPage {
 
+//	TC-1 to 4 Locators
+	
 	public By getUsernameTextfieldLocator() {
-		return By.id(" ");
+		return null;
 	}
-
 	public By getUsernameTextboxLocator() {
-		return By.xpath("  ");
+		return null;
 	}
 
 	public By getPasswordTextboxLocator() {
-		return By.xpath("  ");
+		return null;
 	}
 
 	public By getSignInButtonLocator() {
-		return By.xpath("  ");
+		return null;
 	}
 
 	public By getVerificationLocator() {
-		return By.xpath(" ");
+		return null;
 	}
-
-	public By getHomepageLogoLocator() {
-		return By.cssSelector(" ");
-	}
-
+	
+//	TC-5 Locators
 	public By getPageBarFixedLocator(String navBarName) {
-		return By.xpath("  ");
+		return null;
 	}
-
-	public By getInventoryPageBarFixedLocator(String navBarName) {
-		return By.xpath("  ");
-	}
-
+	
 	public By getSubNavTabLocator(String subNavName) {
-		return By.xpath("  ");
+		return null;
 	}
-
-	public By getButtonLocatorsBytext(String buttonName) {
-		return By.xpath("  ");
+	
+//	TC-6 Locators
+	
+	public By getActualRequestedOnDates() {
+		return null;
 	}
-
-	public By getAnchorTagLocatorByText(String anchorTagName) {
-		return By.xpath("   ");
+//	TC-7 Locators
+	public By favouriteOrStarIcon() {
+		return null;
 	}
-
-	public By searchBarId() {
-		return By.id("   ");
-	}
-
+	
+//	TC-8 LOcators
 	public By calendarFromDropdown() {
-		return By.xpath("    ");
+		return null;
 	}
 
 	public By calendarToDropdown() {
-		return By.xpath("          ");
-	}
-
-	public By getOkButtonLocator() {
-		return By.xpath(" ");
-	}
-
-	public By getRadioButtonsLocator(String radioButtonName) {
-		return By.xpath("  ");
-	}
-
-	public By getStarIconLocator() {
-		return By.xpath("  ");
-	}
-
-	public By favouriteOrStarIcon() {
-		return By.xpath("  ");
-	}
-
-	public By verifyRequisitionDropdown() {
-		return By.xpath("  ");
-	}
-
-	public By getReqStatus() {
-		return By.cssSelector("   ");
-	}
-
-	public By getInventoryLocator() {
-		return By.xpath("   ");
-	}
-
-	public By getLocatorById(String idName) {
-		return By.id(idName);
-	}
-
-	public By getInputFieldLocator(String inputFieldName) {
-		return By.cssSelector("  ");
-	}
-
-	public By getPopUpMessageText(String msgStatus, String messageText) {
-		return By.xpath("    ");
-	}
-
-	public By getPurchaseRequestStatus(String companyName, String status) {
-		return By.xpath("   ");
-	}
-
-	public By getPurchaseRequestViewButton(String status) {
-		return By.xpath("  ");
-	}
-
-	public By getVerificationRemarks() {
-		return By.cssSelector("  ");
-	}
-
-	public By getDateRangeButton() {
-		return By.cssSelector("  ");
-	}
-
-	public By getActualRequestedOnDates() {
-		return By.xpath("  ");
-	}
-
-	public By getRequisitionNumberLocatorsForAllRequisitions() {
-		return By.xpath("  ");
-	}
-
-	public By getRequisitionNumberLocatorFromTheReport() {
-		return By.xpath("  ");
-	}
-
-	public By getRequisitionStatusDropdownLocator() {
-		return By.xpath("  ");
-	}
-
-	public By getItemNameRequiredMsg() {
-		return By.xpath("  ");
-	}
-
-	public By getTotalRecordCount() {
-		return By.cssSelector("  ");
-	}
-
-	public By getResultCountLocator() {
-		return By.cssSelector("   ");
+		return null;
 	}
 	
-	public By getFirstViewButton() {
-		return By.xpath("   ");
+	public By getOkButtonLocator() {
+		return null;
+	}
+	
+	public By getStarIconLocator() {
+		return null;
 	}
 
 	public verification_page(WebDriver driver) {
