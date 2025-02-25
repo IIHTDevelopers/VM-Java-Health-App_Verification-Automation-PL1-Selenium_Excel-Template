@@ -22,8 +22,8 @@ import org.testng.annotations.BeforeClass;
 public class verification_testcase extends AppTestBase {
 	Map<String, String> configData;
 	Map<String, String> loginCredentials;
-	String expectedDataFilePath = testDataFilePath + "expected_data.json";
-	String loginFilePath = loginDataFilePath + "Login.json";
+	String expectedDataFilePath = testDataFilePath + "expected_data.xlsx";
+	String loginFilePath = loginDataFilePath + "Login.xlsx";
 	StartupPage startupPage;
 	String randomInvoiceNumber;
 	LocatorsFactory locatorsFactoryInstance;
@@ -34,7 +34,7 @@ public class verification_testcase extends AppTestBase {
 	@Parameters({ "browser", "environment" })
 	@BeforeClass(alwaysRun = true)
 	public void initBrowser(String browser, String environment) throws Exception {
-		configData = new FileOperations().readJson(config_filePath, environment);
+		configData = new FileOperations().readExcelPOI(config_filePath, environment);
 		configData.put("url", configData.get("url").replaceAll("[\\\\]", ""));
 		configData.put("browser", browser);
 
@@ -52,9 +52,9 @@ public class verification_testcase extends AppTestBase {
 	public void verifyVerificationModule() throws Exception {
 		verification_pageInstance = new verification_page(driver);
 
-		Map<String, String> verificationExpectedData = new FileOperations().readJson(expectedDataFilePath,
+		Map<String, String> verificationExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath,
 				"verification");
-		Map<String, String> loginData = new FileOperations().readJson(loginFilePath, "credentials");
+		Map<String, String> loginData = new FileOperations().readExcelPOI(loginFilePath, "credentials");
 
 		Assert.assertTrue(verification_pageInstance.loginToHealthAppByGivenValidCredetial(loginData),
 				"Login failed, Invalid credentials ! Please check manually");
@@ -72,10 +72,10 @@ public class verification_testcase extends AppTestBase {
 			verification_pageInstance = new verification_page(driver);
 
 			Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-					verification_pageInstance.getPageBarFixedLocator("Inventory")));
+					locatorsFactoryInstance.getPageBarFixedLocator("Inventory")));
 
 			Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-					verification_pageInstance.getPageBarFixedLocator("Pharmacy")));
+					locatorsFactoryInstance.getPageBarFixedLocator("Pharmacy")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,58 +88,58 @@ public class verification_testcase extends AppTestBase {
 
 	public void verifyInventoryTabsAndButtonsAreDisplayed() throws Exception {
 
-		verification_pageInstance = new verification_page(driver);
+		locatorsFactoryInstance = new LocatorsFactory(driver);
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getSubNavTabLocator("Requisition")));
+				locatorsFactoryInstance.getSubNavTabLocator("Requisition")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getSubNavTabLocator("Purchase Request")));
+				locatorsFactoryInstance.getSubNavTabLocator("Purchase Request")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getSubNavTabLocator("Purchase Order")));
+				locatorsFactoryInstance.getSubNavTabLocator("Purchase Order")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getSubNavTabLocator("GR Quality Inspection")));
+				locatorsFactoryInstance.getSubNavTabLocator("GR Quality Inspection")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndClickOnElement(
-				verification_pageInstance.getSubNavTabLocator("Requisition"), "Requisition"));
+				locatorsFactoryInstance.getSubNavTabLocator("Requisition"), "Requisition"));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getRadioButtonsLocator("pending")));
+				locatorsFactoryInstance.getRadioButtonsLocator("pending")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getRadioButtonsLocator("approved")));
+				locatorsFactoryInstance.getRadioButtonsLocator("approved")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getRadioButtonsLocator("rejected")));
+				locatorsFactoryInstance.getRadioButtonsLocator("rejected")));
 
 		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(verification_pageInstance.getRadioButtonsLocator("all")));
+				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.getRadioButtonsLocator("all")));
 
 		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(verification_pageInstance.favouriteOrStarIcon()));
+				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.favouriteOrStarIcon()));
 
 		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(verification_pageInstance.getOkButtonLocator()));
+				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.getOkButtonLocator()));
 
 		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(verification_pageInstance.searchBarId()));
+				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.searchBarId()));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getButtonLocatorsBytext("Print")));
+				locatorsFactoryInstance.getButtonLocatorsBytext("Print")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getButtonLocatorsBytext("First")));
+				locatorsFactoryInstance.getButtonLocatorsBytext("First")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getButtonLocatorsBytext("Previous")));
+				locatorsFactoryInstance.getButtonLocatorsBytext("Previous")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getButtonLocatorsBytext("Next")));
+				locatorsFactoryInstance.getButtonLocatorsBytext("Next")));
 
 		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				verification_pageInstance.getButtonLocatorsBytext("Last")));
+				locatorsFactoryInstance.getButtonLocatorsBytext("Last")));
 	}
 
 	@Test(priority = 4, groups = {
@@ -148,10 +148,10 @@ public class verification_testcase extends AppTestBase {
 					+ "3. User should navigate to the pharmacy section from the inventory section ")
 
 	public void verifyNavigationToAnotherSubModuleAfterOpeningTheInventorySection() throws Exception {
-		verification_pageInstance = new verification_page(driver);
+		locatorsFactoryInstance = new LocatorsFactory(driver);
 
 		Assert.assertTrue(verification_pageInstance.verifySelectedTabIsActiveOrNot(
-				verification_pageInstance.getPageBarFixedLocator("Pharmacy")), "Pharmacy page is not active");
+				locatorsFactoryInstance.getPageBarFixedLocator("Pharmacy")), "Pharmacy page is not active");
 	}
 
 	@Test(priority = 5, groups = {
@@ -188,7 +188,7 @@ public class verification_testcase extends AppTestBase {
 	public void verifyToolTipText() throws Exception {
 		verification_pageInstance = new verification_page(driver);
 
-		Map<String, String> pharmacyExpectedData = new FileOperations().readJson(expectedDataFilePath, "verification");
+		Map<String, String> pharmacyExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "verification");
 		Assert.assertEquals(verification_pageInstance.verifyToolTipText(), pharmacyExpectedData.get("favouriteIcon"));
 	}
 
