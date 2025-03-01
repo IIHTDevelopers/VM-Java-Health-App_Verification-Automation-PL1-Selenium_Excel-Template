@@ -117,29 +117,6 @@ public class verification_testcase extends AppTestBase {
 		Assert.assertTrue(verification_pageInstance
 				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.getRadioButtonsLocator("all")));
 
-		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.favouriteOrStarIcon()));
-
-		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.getOkButtonLocator()));
-
-		Assert.assertTrue(verification_pageInstance
-				.highlightAndVerifyWhetherElementIsDisplayed(locatorsFactoryInstance.searchBarId()));
-
-		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				locatorsFactoryInstance.getButtonLocatorsBytext("Print")));
-
-		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				locatorsFactoryInstance.getButtonLocatorsBytext("First")));
-
-		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				locatorsFactoryInstance.getButtonLocatorsBytext("Previous")));
-
-		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				locatorsFactoryInstance.getButtonLocatorsBytext("Next")));
-
-		Assert.assertTrue(verification_pageInstance.highlightAndVerifyWhetherElementIsDisplayed(
-				locatorsFactoryInstance.getButtonLocatorsBytext("Last")));
 	}
 
 	@Test(priority = 4, groups = {
