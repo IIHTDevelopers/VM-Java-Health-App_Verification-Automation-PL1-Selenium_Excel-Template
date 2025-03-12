@@ -15,61 +15,23 @@ import org.openqa.selenium.support.ui.Select;
 public class verification_page extends StartupPage {
 
 //	TC-1 to 4 Locators
-	
-	public By getUsernameTextfieldLocator() {
-		return null;
-	}
-	public By getUsernameTextboxLocator() {
-		return null;
-	}
-
-	public By getPasswordTextboxLocator() {
-		return null;
-	}
-
-	public By getSignInButtonLocator() {
-		return null;
-	}
-
-	public By getVerificationLocator() {
-		return null;
-	}
-	
+	public By getUsernameTextfieldLocator = null;
+	public By getUsernameTextboxLocator = null;
+	public By getPasswordTextboxLocator = null;
+	public By getSignInButtonLocator = null;
+	public By getVerificationLocator = null;
 //	TC-5 Locators
-	public By getPageBarFixedLocator(String navBarName) {
-		return null;
-	}
-	
-	public By getSubNavTabLocator(String subNavName) {
-		return null;
-	}
-	
+	public By getPageBarFixedLocator = null;
+	public By getSubNavTabLocator = null;
 //	TC-6 Locators
-	
-	public By getActualRequestedOnDates() {
-		return null;
-	}
+	public By getActualRequestedOnDates = null;
 //	TC-7 Locators
-	public By favouriteOrStarIcon() {
-		return null;
-	}
-	
+	public By favouriteOrStarIcon = null;
 //	TC-8 LOcators
-	public By calendarFromDropdown() {
-		return null;
-	}
-
-	public By calendarToDropdown() {
-		return null;
-	}
-	
-	public By getOkButtonLocator() {
-		return null;
-	}
-	
-	public By getStarIconLocator() {
-		return null;
-	}
+	public By calendarFromDropdown = null;
+	public By calendarToDropdown = null;
+	public By getOkButtonLocator = null;
+	public By getStarIconLocator = null;
 
 	public verification_page(WebDriver driver) {
 		super(driver);
@@ -114,7 +76,7 @@ public class verification_page extends StartupPage {
 	}
 
 	/**
-	 * @Test2, 3 about this method highlightAndVerifyWhetherElementIsDisplayed
+	 * @Test2 about this method highlightAndVerifyWhetherElementIsDisplayed
 	 * 
 	 * @param element : By - Locator of the element to be highlighted and verified
 	 * @description : This method verifies whether an element is displayed on the
@@ -122,13 +84,13 @@ public class verification_page extends StartupPage {
 	 * @return : boolean - true if the element is displayed, otherwise false
 	 * @author : YAKSHA
 	 */
-	public boolean highlightAndVerifyWhetherElementIsDisplayed(By element) {
+	public boolean verifyVerificationSubModules(By element) {
 		
 		return false;
 	}
 
 	/**
-	 * @Test2 and @Test3 about this method highlightAndClickOnElement
+	 * @Test3 about this method highlightAndClickOnElement
 	 * 
 	 * @param element     : By - Locator of the element to be highlighted and
 	 *                    clicked
@@ -140,7 +102,7 @@ public class verification_page extends StartupPage {
 	 *         false
 	 * @author : YAKSHA
 	 */
-	public boolean highlightAndClickOnElement(By element, String elementName) {
+	public boolean verifyInventoryTabsAndButtonsAreDisplayed(By element) {
 		
 		
 		return false;
@@ -159,7 +121,7 @@ public class verification_page extends StartupPage {
 	 *           the tab, or getting its attribute
 	 * @author : YAKSHA
 	 */
-	public boolean verifySelectedTabIsActiveOrNot(By element) throws Exception {
+	public boolean verifyPharmacyTabIsActiveOrNot(By element) throws Exception {
 		
 		return false;
 	}
