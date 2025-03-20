@@ -25,13 +25,6 @@ public class verification_page extends StartupPage {
 	public By getSubNavTabLocator = null;
 //	TC-6 Locators
 	public By getActualRequestedOnDates = null;
-//	TC-7 Locators
-	public By favouriteOrStarIcon = null;
-//	TC-8 LOcators
-	public By calendarFromDropdown = null;
-	public By calendarToDropdown = null;
-	public By getOkButtonLocator = null;
-	public By getStarIconLocator = null;
 
 	public verification_page(WebDriver driver) {
 		super(driver);
@@ -161,41 +154,7 @@ public class verification_page extends StartupPage {
 
 		
 	}
-
-	/**
-	 * @Test7 about this method verifyToolTipText()
-	 * @param : null
-	 * @description : Verify the text of the tooltip
-	 * @return : String
-	 * @throws : Exception - if there is an issue finding the text
-	 * @author : YAKSHA
-	 */
-	public String verifyToolTipText() {
-		
-		return null;
-	}
-
-	/**
-	 * @Test8 about this method verifyDatesAreRememberedCorrectly()
-	 * 
-	 * @param fromDate - the expected "from" date in the format "dd-MM-yyyy"
-	 * @param toDate   - the expected "to" date in the format "dd-MM-yyyy"
-	 * @description : This method selects the "from" and "to" dates in the calendar,
-	 *              clicks the OK button, navigates away to another tab, returns to
-	 *              the original tab, and verifies if the dates are remembered
-	 *              correctly.
-	 * @return : boolean - true if the dates are remembered correctly, false
-	 *         otherwise
-	 * @throws : Exception - if there is an issue locating, highlighting, or
-	 *           clicking elements, or if there is an issue with date selection or
-	 *           verification
-	 * @author : YAKSHA
-	 * @throws Exception
-	 */
-	public boolean verifyDatesAreRememberedCorrectly(String fromDate, String toDate) throws Exception {
-		
-		return false;
-	}
+	
 
 
 }
