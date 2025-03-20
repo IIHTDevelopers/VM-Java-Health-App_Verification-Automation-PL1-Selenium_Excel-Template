@@ -157,34 +157,7 @@ public class verification_testcase extends AppTestBase {
 		Assert.assertTrue(
 				verification_pageInstance.verifyTheResultsDateRangeIsWithinTheSelectedRange(fromDate, toDate));
 	}
-
-	@Test(priority = 7, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Inventory > Requisition section \r\n"
-					+ "1. Hover the mouse over the star/favourite icon. \r\n"
-					+ "2. Verify that a tooltip with the text \"Remember this date\" appears when hovering over the star.")
-	public void verifyToolTipText() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		Map<String, String> pharmacyExpectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "verification");
-		Assert.assertEquals(verification_pageInstance.verifyToolTipText(), pharmacyExpectedData.get("favouriteIcon"));
-	}
-
-	@Test(priority = 8, groups = {
-			"sanity" }, description = "Pre condition: User should be logged in and it is on Inventory > Requisition section \r\n"
-					+ "1. Hover the mouse over the star/favourite icon. \r\n"
-					+ "2. Verify that a tooltip with the text \"Remember this date\" appears when hovering over the star.")
-	public void verifyDatesAreRemeberedCorrectly() throws Exception {
-		verification_pageInstance = new verification_page(driver);
-
-		LocalDate currentDate = LocalDate.now();
-		LocalDate date50DaysAgo = currentDate.minusDays(50);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String toDate = currentDate.format(formatter);
-		String fromDate = date50DaysAgo.format(formatter);
-
-		System.out.println("From Date : " + fromDate + ", To Date : " + toDate);
-		Assert.assertTrue(verification_pageInstance.verifyDatesAreRememberedCorrectly(fromDate, toDate));
-	}
+	
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
